@@ -4,5 +4,3 @@ for i in range(0, 100):
         print("0{}".format(i), end=", ")
     elif i >= 10 and i < 99:
         print(i, end=", ")
-    else:
-        print(99)
