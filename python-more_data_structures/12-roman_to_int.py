@@ -2,21 +2,21 @@
 def roman_to_int(roman_string):
     dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 100}
 
-    count = 0
-
     if roman_string is None or type(roman_string) is not str:
         return 0
 
-    for i in range(0, len(roman_string)):
-        for key, value in dict.items():
-            if roman_string == 'IV':
-                count = 4
-            if roman_string == 'CXXIV':
-                count = 124
-            if roman_string == 'XCIX':
-                count = 99
-            if roman_string == 'LXXXIX':
-                count = 89
-            if roman_string[i] == key:
-                count += value
+    count = 0
+    prev_value = 0
+
+    for c in reversed(roman_string):
+
+        value = dict.get(c, 0)
+
+        if value < prev_value:
+            count = count - value
+        else:
+            count = count + value
+
+        prev_value = value
+
     return count
