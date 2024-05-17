@@ -30,9 +30,9 @@ class Square:
 
     def my_print(self):
         size = self._Square__size
-        for i in range(size):
-            for j in range(size):
-                if size == 0:
-                    print()
-                else:
+        if size == 0:
+            print()
+        else:
+            for i in range(size):
+                for j in range(size):
                     print("#", end="" if j != size - 1 else "\n")
