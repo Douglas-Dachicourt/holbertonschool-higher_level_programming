@@ -1,11 +1,25 @@
 #!/usr/bin/python3
 """Class square creation
+
 """
 
 
 class Square:
-    """square class that defines a square"""
+    """square class initialisation that defines a square
+
+    Attributes:
+    size - the size of the square (int)
+    position - position of the square (tuple)
+
+    """
     def __init__(self, size=0, position=(0, 0)):
+        """Instance of the Square
+
+        Args:
+        size : type int, default is set at 0
+        position: type tuplen, position of the squate, default (0, 0)
+
+        """
         self._Square__size = size
         self._Square__position = position
         if type(size) is not int:
@@ -14,6 +28,11 @@ class Square:
             raise ValueError("size must be >= 0")
 
     def area(self):
+        """ Calculates the area of the square
+
+        Returns:
+        The area (type int)
+        """
         return (self._Square__size * self._Square__size)
 
     @property
@@ -45,6 +64,7 @@ class Square:
         self._Square__position = value
 
     def my_print(self):
+        """Prints the square with the sharp character #"""
         size = self._Square__size
         position = self._Square__position
         if size == 0:
