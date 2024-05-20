@@ -6,7 +6,11 @@
 def add_integer(a, b=98):
     """fonction that add two integers or two floats numbers
 
-        Return a + b
+        Args :
+        a : an int or a float
+        b : an int or a float
+
+        Return a + b - must be integer only
     """
     if type(a) is not int and type(a) is not float:
         raise ValueError("a must be an integer")
