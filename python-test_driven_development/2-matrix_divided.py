@@ -29,6 +29,8 @@ def matrix_divided(matrix, div):
                 raise TypeError("div must be a number")
             elif div == 0:
                 raise ZeroDivisionError("division by zero")
+            elif div > 9999999:
+                result = 0.0
             else:
                 result = x / div
 
