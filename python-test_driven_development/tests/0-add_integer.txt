@@ -21,3 +21,7 @@ ValueError: cannot convert float NaN to integer
 Traceback (most recent call last):
 ...
 OverflowError: cannot convert float infinity to integer
+>>> add_integer(1, "H")
+Traceback (most recent call last):
+...
+ValueError: b must be an integer
