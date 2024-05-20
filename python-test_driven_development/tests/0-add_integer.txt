@@ -3,3 +3,24 @@
 
 >>> add_integer(1, 2)
 3
+
+>>> add_integer(4, -5)
+-1
+
+>>> add_integer(10, 0)
+10
+
+>>> add_integer(0, 10)
+10
+
+>>> add_integer(-20, -25)
+-45
+
+>>> add_integer(-25, -20)
+-45
+
+>>> add_integer(1, -5)
+-4
+
+>>> add_integer(5, -5)
+0
