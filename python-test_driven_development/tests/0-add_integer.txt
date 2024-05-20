@@ -13,3 +13,7 @@
 10
 >>> add_integer(2)
 100
+>>> add_integer(2, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert to an add_integer
