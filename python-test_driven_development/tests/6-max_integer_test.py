@@ -18,6 +18,18 @@ class TestMaxInteger(unittest.TestCase):
         expected_list = "you"
         self.assertEqual(max_integer(["hello", "you"]), expected_list)
 
+    def test_max_beggining(self):
+        expected_list = 100
+        self.assertEqual(max_integer([100, 98, 2, -10, 99]), expected_list)
+
+    def test_max_middle(self):
+        expected_list = 65
+        self.assertEqual(max_integer([10, 8, 65, -10, 45]), expected_list)
+
+    def test_one_element(self):
+        expected_list = 20
+        self.assertEqual(max_integer([20]), expected_list)
+
 
 if __name__ == "__main__":
     unittest.main()
