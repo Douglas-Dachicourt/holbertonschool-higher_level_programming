@@ -15,3 +15,10 @@ Hello holbies
 
 >>> text_indentation("""What's up dude""")
 What's up dude
+
+>>> text_indentation("Hello holbies. How are you? Hope you are all good!")
+Hello holbies.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+Hope you are all good!
