@@ -10,7 +10,7 @@ Traceback (most recent call last):
 ...
 TypeError: text must be a string
 
->>> text_indentation("""\n""")
+>>> text_indentation("""              """)
 <BLANKLINE>
 
 >>> text_indentation("""What's up dude""")
