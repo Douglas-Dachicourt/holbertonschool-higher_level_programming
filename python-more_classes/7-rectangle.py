@@ -79,8 +79,10 @@ class Rectangle:
             for j in range(self._Rectangle__width):
                 if type(self.print_symbol) is list:
                     result = result + f"{self.print_symbol}"
+                elif type(self.print_symbol) is int:
+                    result = result + f"{self.print_symbol}"
                 else:
-                    result = result + self.print_symbol
+                    result = result + f"{self.print_symbol}"
             result = result + "\n"
         return result.strip()
 
