@@ -64,8 +64,12 @@ class Rectangle:
 
     def __str__(self):
         result = ""
+
+        if self._Rectangle__height == 0 or self._Rectangle__width == 0:
+            print("")
+
         for i in range(self._Rectangle__height):
             for j in range(self._Rectangle__width):
-                print(result + "#", end="" if j !=
-                      self._Rectangle__width - 1 else "\n")
-        return result
+                result = result + "#"
+            result = result + "\n"
+        return result.strip()
