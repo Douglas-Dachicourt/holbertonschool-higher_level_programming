@@ -19,11 +19,16 @@ def text_indentation(text):
     if type(text) is not str:
         raise TypeError("text must be a string")
 
-    else:
-        for i in range(len(text)):
-            if text[i] == ':' or text[i] == '?' or text[i] == '.':
-                if text[i] != " ":
-                    print("{}".format(text[i]), end="")
-                    print("\n")
-            else:
-                print("{}".format(text[i]), end="")
+    i = 0
+
+    while i < len(text):
+        if text[i] in "?.:":
+            print(text[i])
+            print()
+            i = i + 1
+            while i > len(text) and text[i] == ' ':
+                i = i + 1
+        else:
+            print(text[i], end="")
+
+        i = i + 1
