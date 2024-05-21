@@ -77,4 +77,6 @@ class Rectangle:
         return result.strip()
 
     def __repr__(self):
-        return f"Rectangle({self._Rectangle__width}, {self._Rectangle__height})"
+        width = self._Rectangle__width
+        height = self._Rectangle__height
+        return f"Rectangle ({width}, {height})"
