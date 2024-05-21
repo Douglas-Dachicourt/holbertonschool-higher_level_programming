@@ -68,7 +68,7 @@ class Rectangle:
         return perimeter
 
     def __str__(self):
-        """function that prints a vizualiation of the rectangle with #"""
+        """function that prints a vizualiation of the rectangle with symbol"""
         result = ""
 
         if self._Rectangle__height == 0 or self._Rectangle__width == 0:
@@ -77,7 +77,10 @@ class Rectangle:
 
         for i in range(self._Rectangle__height):
             for j in range(self._Rectangle__width):
-                result = result + Rectangle.print_symbol
+                if type(self.print_symbol) is list:
+                    result = result + f"{self.print_symbol}"
+                else:
+                    result = result + self.print_symbol
             result = result + "\n"
         return result.strip()
 
