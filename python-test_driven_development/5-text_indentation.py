@@ -22,7 +22,8 @@ def text_indentation(text):
     else:
         for i in range(len(text)):
             if text[i] == ':' or text[i] == '?' or text[i] == '.':
-                print("{}".format(text[i]), end="")
-                print("\n")
+                if text[i] != " ":
+                    print("{}".format(text[i]), end="")
+                    print("\n")
             else:
                 print("{}".format(text[i]), end="")
