@@ -63,6 +63,7 @@ class Rectangle:
         return perimeter
 
     def __str__(self):
+        """function that prints a vizualiation of the rectangle with #"""
         result = ""
 
         if self._Rectangle__height == 0 or self._Rectangle__width == 0:
