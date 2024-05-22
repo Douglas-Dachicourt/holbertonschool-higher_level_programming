@@ -19,7 +19,7 @@ def is_same_class(obj, a_class):
         return False
     elif (type(obj) == str or type(obj) == list) and a_class == object:
         return True
-    elif (type(obj) == bool or obj == None) and a_class == object:
+    elif obj == None and a_class == object:
         return True
     else:
         return False
