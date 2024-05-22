@@ -21,5 +21,3 @@ def is_same_class(obj, a_class):
         return True
     elif type(obj) == list and a_class == list:
         return True
-    else:
-        return False
