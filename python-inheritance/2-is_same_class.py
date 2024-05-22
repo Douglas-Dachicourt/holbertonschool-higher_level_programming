@@ -12,6 +12,7 @@ def is_same_class(obj, a_class):
     """
 
     if isinstance(obj, a_class):
-        return True
-    else:
-        return False
+        if issubclass(a_class, (int, float, object)):
+            return True
+        else:
+            return False
