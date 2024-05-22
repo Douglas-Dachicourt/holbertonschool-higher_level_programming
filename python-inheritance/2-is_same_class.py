@@ -11,13 +11,15 @@ def is_same_class(obj, a_class):
 
     """
 
-    if type(obj) == int and a_class == int:
+    if type(obj) is int and a_class == int:
         return True
-    elif type(obj) == float and a_class == float:
+    elif type(obj) is float and a_class == float:
         return True
-    elif type(obj) == bool and a_class == int:
+    elif type(obj) is bool and a_class == int:
         return False
-    elif (type(obj) == str or type(obj) == list) and a_class == object:
+    elif type(obj) is str and a_class == object:
         return True
-    elif type(obj) == list and a_class == list:
+    elif type(obj) is list and a_class == list:
         return True
+    else:
+        return False
