@@ -21,7 +21,7 @@
 
 >>> print(my_list)
 [1, -5, 2, -10, 5]
-my_list.print_sorted()
+>>> my_list.print_sorted()
 [-10, -5, 1, 2, 5]
-print(my_list)
+>>> print(my_list)
 [1, -5, 2, -10, 5]
