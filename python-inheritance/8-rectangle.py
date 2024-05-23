@@ -40,3 +40,6 @@ class Rectangle(BaseGeometry):
 
         super().integer_validator("width", width)
         super().integer_validator("height", height)
+
+        if issubclass(Rectangle, BaseGeometry):
+            return True
