@@ -23,12 +23,12 @@ class Circle(Shape):
 
     def area(self):
 
-        area = pi * ((abs(self.radius)) ** 2)
+        area = pi * ((self.radius) ** 2)
         return area
 
     def perimeter(self):
 
-        perimeter = 2 * pi * self.radius
+        perimeter = 2 * pi * (abs(self.radius))
         return perimeter
 
 
