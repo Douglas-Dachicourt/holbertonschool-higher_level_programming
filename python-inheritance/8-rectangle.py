@@ -38,8 +38,5 @@ class Rectangle(BaseGeometry):
         self._Rectangle__width = width
         self._Rectangle__height = height
 
-        super().integer_validator("width", width)
-        super().integer_validator("height", height)
-
-        if issubclass(Rectangle, BaseGeometry):
-            return True
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
