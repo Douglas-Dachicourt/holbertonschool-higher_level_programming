@@ -18,12 +18,12 @@ class Shape(ABC):
 
 class Circle(Shape):
 
-    def __init__(self, radius=0):
+    def __init__(self, radius):
         self.radius = radius
 
     def area(self):
 
-        area = pi * ((self.radius) ** 2)
+        area = pi * ((abs(self.radius)) ** 2)
         return area
 
     def perimeter(self):
