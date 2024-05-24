@@ -61,4 +61,4 @@ draco.fly()
 # The creature flies!
 
 draco.roar()
-# The creature flies!
+# The dragon roars!
