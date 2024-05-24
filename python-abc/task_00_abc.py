@@ -1,12 +1,20 @@
 #!/usr/bin/python3
 from abc import ABC, abstractmethod
-"""This module is sharing a base class using an abstract method
-and two subclasses that inherit the base
+
+"""Objectives of this module: Create an abstract class named Animal using
+the ABC package. This class should have an abstract method called sound.
+Create two subclasses of Animal: Dog and Cat. Implement the sound method
+in each subclass to return the strings “Bark” and “Meow” respectively.
 """
 
 
 class Animal(ABC):
-    """Main abstract Animal class
+    """ class Animal that inherit the ABC fonctionalities to
+    create abstract methods
+
+    Method:
+
+    - sound : an abstract class
     """
 
     @abstractmethod
@@ -15,14 +23,30 @@ class Animal(ABC):
 
 
 class Dog(Animal):
-    """Subclass Dog that inhrits Animal"""
+    """Class Dog that inherit Animal and overrides the abstract
+    method from there
+
+    Method:
+
+    - sound : overrides the abstract method from animal to print
+    out a message to make dog bark
+
+    """
 
     def sound(self):
         return f"Bark"
 
 
 class Cat(Animal):
-    """Subclass Cat that inhrits Animal"""
+    """Class Cat that inherit Animal and overrides the abstract
+    method from there
+
+    Method:
+
+    - sound : overrides the abstract method from animal to print
+    out a message to make cat meows
+
+    """
 
     def sound(self):
         return f"Meow"
