@@ -9,12 +9,12 @@ in each subclass to return the strings “Bark” and “Meow” respectively.
 
 
 class Animal(ABC):
-    """ class Animal that inherit the ABC fonctionalities to
-    create abstract methods
+    """ Abstract class Animal using the ABC module to create abstract
+    methods.
 
     Method:
 
-    - sound : an abstract class
+    - sound : An abstract method that must be implemented by any subclass.
     """
 
     @abstractmethod
@@ -23,14 +23,10 @@ class Animal(ABC):
 
 
 class Dog(Animal):
-    """Class Dog that inherit Animal and overrides the abstract
-    method from there
+    """Class Dog that inherits from Animal and implements the sound method.
 
     Method:
-
-    - sound : overrides the abstract method from animal to print
-    out a message to make dog bark
-
+    - sound: Overrides the abstract method from Animal to return "Bark".
     """
 
     def sound(self):
@@ -38,15 +34,11 @@ class Dog(Animal):
 
 
 class Cat(Animal):
-    """Class Cat that inherit Animal and overrides the abstract
-    method from there
+    """Class Cat that inherits from Animal and implements the sound method.
 
-    Method:
-
-    - sound : overrides the abstract method from animal to print
-    out a message to make cat meows
-
-    """
+     Method:
+     - sound: Overrides the abstract method from Animal to return "Meow".
+     """
 
     def sound(self):
         return f"Meow"
