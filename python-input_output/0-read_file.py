@@ -16,6 +16,6 @@ def read_file(filename=""):
 
 
     """
-    with open(filename) as fic:
+    with open(filename, "r", encoding="utf-8") as fic:
         content = fic.read()
         print(content)
