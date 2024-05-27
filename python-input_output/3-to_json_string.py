@@ -5,17 +5,20 @@ import json
 This module is providing a function that returns an object
 (Python data structure) represented by a JSON string
 
-We have to import first the module JSON
+We have to import first the module JSON (import json)
 """
 
 
 def to_json_string(my_obj):
     """
-    Function : to_json_string
+    Function : to_json_string is returning an object
+    representend by a json string
+
 
     Arguments :
 
     - my_obj: the data from the json file we want to work with
+
 
     Return:
 
