@@ -22,6 +22,5 @@ def to_json_string(my_obj):
     The object represented by a JSON string
 
     """
-    to_show = json.dumps(my_obj)
 
-    return to_show
+    return json.dumps(my_obj)
