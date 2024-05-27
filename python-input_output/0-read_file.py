@@ -2,5 +2,4 @@
 
 def read_file(filename=""):
     with open(filename) as fic:
-        content = fic.read()
-        print(content)
+        print(fic.read())
