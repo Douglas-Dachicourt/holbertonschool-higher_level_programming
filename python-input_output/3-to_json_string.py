@@ -11,18 +11,21 @@ We have to import first the module JSON (import json)
 
 def to_json_string(my_obj):
     """
-    Function : to_json_string is returning an object
-    representend by a json string
+    Function : to_json_string
+
+    This function returns the JSON string representation
+    of a Python data structure.
 
 
     Arguments :
 
-    - my_obj: the data from the json file we want to work with
+    - my_obj: the Python data structure to convert to
+    JSON string
 
 
     Return:
 
-    The object represented by a JSON string
+    The JSON string representation of the Python data structure
 
     """
 
