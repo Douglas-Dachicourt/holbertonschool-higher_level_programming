@@ -11,12 +11,13 @@ def read_file(filename=""):
     """
     Function read_file:
 
-    This function open a file(.txt) throught the argument
-    passed and prints out the text in stdout
+    This function open a text file specified by the arguement
+    passed and prints out the text to stdout
 
-    1 argument:
+    Arguments:
 
-    The way to the file we want to open and read
+    filename : type str giving the way of the file we want to open
+    and read
 
 
     """
