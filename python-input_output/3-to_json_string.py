@@ -28,5 +28,6 @@ def to_json_string(my_obj):
     The JSON string representation of the Python data structure
 
     """
+    my_obj = json.dumps(my_obj)
 
-    return json.dumps(my_obj)
+    return my_obj
