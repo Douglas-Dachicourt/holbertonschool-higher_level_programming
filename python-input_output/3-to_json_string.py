@@ -1,11 +1,7 @@
 #!/usr/bin/python3
 import json
-
 """
-This module is providing a function that returns an object
-(Python data structure) represented by a JSON string
-
-We have to import first the module JSON (import json)
+import json module
 """
 
 
@@ -28,6 +24,4 @@ def to_json_string(my_obj):
     The JSON string representation of the Python data structure
 
     """
-    x = json.dumps(my_obj)
-
-    return x
+    return json.dumps(my_obj)
