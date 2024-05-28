@@ -8,7 +8,8 @@ This module helps to print out a pascal rectangle
 
 def pascal_triangle(n):
     """
-    Function pascal_triangle
+    Function pascal_triangle that prints out a full pascal rectangle for a
+    given size
 
     Attributes:
 
