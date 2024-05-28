@@ -25,14 +25,14 @@ def pascal_triangle(n):
 
     Return:
 
-    The triangle printed out in stdout
+    The triangle as a list of lists
 
     """
 
     a_list = []
 
     if n <= 0:
-        print(a_list)
+        return a_list
     else:
         a_list.append([1])
 
