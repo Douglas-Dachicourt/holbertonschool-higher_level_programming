@@ -1,14 +1,22 @@
 #!/usr/bin/python3
 """
-This module helps to print out a pascal rectangle
-
+This module helps to print out a pascal rectangle for a given size.
+For example and a given size of 5 , we shoud have that following
+representation in stdout:
+[1]
+[1,1]
+[1,2,1]
+[1,3,3,1]
+[1,4,6,4,1]
 
 """
 
 
 def pascal_triangle(n):
     """
-    Function pascal_triangle that prints out a full pascal rectangle for a
+    Function :
+
+    - pascal_triangle() that prints out a full pascal rectangle for a
     given size
 
     Attributes:
@@ -17,7 +25,7 @@ def pascal_triangle(n):
 
     Return:
 
-    The triangle
+    The triangle printed out in stdout
 
     """
 
