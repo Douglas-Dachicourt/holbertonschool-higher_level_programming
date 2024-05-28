@@ -1,11 +1,5 @@
 #!/usr/bin/python3
 """
-import json module
-"""
-import json
-
-
-"""
 Objective of this module is to define a student with a main class
 which allows to print out informations of a student using
 public method "to_json"
