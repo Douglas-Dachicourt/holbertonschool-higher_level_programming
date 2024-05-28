@@ -1,14 +1,24 @@
 #!/usr/bin/python3
 """
-Function: pascal_triangle that print out a pascal rectangle
+This module helps to print out a pascal rectangle
 
-Attributes:
 
-- n: an integer to give the 'size' of the rectangle
 """
 
 
 def pascal_triangle(n):
+    """
+    Function pascal_triangle
+
+    Attributes:
+
+    - n: must a strict positive integer to give the 'size' of the rectangle
+
+    Return:
+
+    The triangle
+
+    """
 
     a_list = []
 
