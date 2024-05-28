@@ -5,6 +5,14 @@ import json module
 import json
 
 
+"""
+Objective of this module is to define a student with a main class
+which allows to print out informations of a student using
+public method "to_json"
+
+"""
+
+
 class Student:
     """
     class Student : defines a student by his last name,
@@ -13,8 +21,11 @@ class Student:
     Methods:
 
     - to_json : retrieves a dictionary representation of a Student
-    instance and returns it
+    instance
 
+    Return :
+
+    Values of last_name, name and PLUS type of class
 
 
 """
