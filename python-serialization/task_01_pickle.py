@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-import pickle module
+import pickle and os modules
 """
+import os
 import pickle
 """
 This module's goal is to learn how to serialize and
@@ -59,18 +60,20 @@ class CustomObject:
         print("Is_Student: {}".format(self.is_student), end="\n")
 
     def serialize(self, filename):
-        try:
-            with open(filename, "wb") as f:
-                data = pickle.dump(self, f)
-                return data
-        except (TypeError, AttributeError):
-            return None
+        if os.path.exists(filename):
+            try:
+                with open(filename, "wb") as f:
+                    data = pickle.dump(self, f)
+                    return data
+            except (TypeError, AttributeError):
+                return None
 
     @classmethod
     def deserialize(cls, filename):
-        try:
-            with open(filename, "rb") as f:
-                data = pickle.load(f)
-                return data
-        except (AttributeError, TypeError):
-            return None
+        if os.path.exists(filename):
+            try:
+                with open(filename, "rb") as f:
+                    data = pickle.load(f)
+                    return data
+            except (AttributeError, TypeError):
+                return None
