@@ -26,12 +26,13 @@ def convert_csv_to_json(csv_file):
                 reader = csv.DictReader(f)
                 for rows in reader:
                     data.append(rows)
-            return True
-    except FileNotFoundError:
-        return False
 
-    with open("data.json", "w", encoding="utf-8") as f:
-        try:
-            json.dump(data, f, indent=0)
-        except FileNotFoundError:
-            return False
+            with open("data.json", "w", encoding="utf-8") as f:
+                try:
+                    json.dump(data, f, indent=0)
+                    return True
+                except Exception:
+                    return False
+
+    except Exception:
+        return False
