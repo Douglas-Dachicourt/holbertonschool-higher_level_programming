@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""import csv and json modules"""
+"""import csv, os and json modules"""
 import csv
 import json
 import os
@@ -15,8 +15,8 @@ def convert_csv_to_json(csv_file):
     - csv_file : the csv file to convert
 
     Returns:
-    => True if conversion is done.
-    => False if file is not found
+    - True if conversion is done.
+    - False if file is not found
 
     """
     data = []
@@ -33,6 +33,7 @@ def convert_csv_to_json(csv_file):
                     return True
                 except Exception:
                     return False
-
+        else:
+            return False
     except Exception:
         return False
