@@ -3,15 +3,6 @@
 import pickle module
 """
 import pickle
-"""
-This module's goal is to learn how to serialize and
-deserialize custom Python objects using the pickle module.
-
-We will use a main class called CustomObject and use
-different methods
-
-
-"""
 
 
 class CustomObject:
@@ -63,7 +54,7 @@ class CustomObject:
             with open(filename, "wb") as f:
                 data = pickle.dump(self, f)
                 return data
-        except (AttributeError, TypeError):
+        except Exception:
             return None
 
     @classmethod
@@ -72,5 +63,5 @@ class CustomObject:
             with open(filename, "rb") as f:
                 data = pickle.load(f)
                 return data
-        except (AttributeError, TypeError):
+        except Exception:
             return None
