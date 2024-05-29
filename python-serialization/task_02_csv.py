@@ -2,6 +2,7 @@
 """import csv and json modules"""
 import csv
 import json
+import os
 
 
 def convert_csv_to_json(csv_file):
@@ -20,12 +21,12 @@ def convert_csv_to_json(csv_file):
     """
     data = []
     try:
-        with open(csv_file, encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            if reader:
+        if os.path.exists(csv_file):
+            with open(csv_file, encoding="utf-8") as f:
+                reader = csv.DictReader(f)
                 for rows in reader:
                     data.append(rows)
-                return True
+            return True
     except FileNotFoundError:
         return False
 
