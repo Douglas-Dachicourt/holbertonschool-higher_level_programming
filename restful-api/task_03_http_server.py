@@ -3,7 +3,6 @@
 This module contain a class SimpleHTTPRequestHandler to let a basic
 python server run
 """
-
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
@@ -101,10 +100,11 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
     - port: we work on local port 8000
 
     """
-    server_address = ("localhost", port)
+    server_address = ("", port)
     httpd = server_class(server_address, handler_class)
+    print(f"Server launched on port {port}")
     httpd.serve_forever()
 
 
 if __name__ == "__main__":
-    run()
+    run()  # run the server if it is exectued through the script
