@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """import http.server and json modules"""
 import http.server
+from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
 
-class MyHandler(http.server.BaseHTTPRequestHandler):
+class MyHandler(BaseHTTPRequestHandler):
     """
     class MyHandler : inherits methods from http.server module
     It is a class to launch a basic server
@@ -78,11 +79,9 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
 
         else:
             self.send_error(404, "Endpoint not found")
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
 
 
 if __name__ == "__main__":
     PORT = 8000
-    httpd = http.server.HTTPServer(('localhost', PORT), MyHandler)
+    httpd = HTTPServer.HTTPServer(('localhost', PORT), MyHandler)
     httpd.serve_forever()
