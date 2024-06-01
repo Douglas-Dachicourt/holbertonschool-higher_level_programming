@@ -78,6 +78,8 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
 
         else:
             self.send_error(404, "Endpoint not found")
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
 
 
 if __name__ == "__main__":
