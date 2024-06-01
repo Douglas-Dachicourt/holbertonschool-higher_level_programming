@@ -82,7 +82,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
 
 def run(server_class=HTTPServer,
-        handler_class=SimpleHTTPRequestHandler, port=8000):
+        handler_class=MyHandler, port=8000):
     """
     Set up and start the HTTP server.
 
@@ -90,11 +90,10 @@ def run(server_class=HTTPServer,
     :param handler_class: The request handler class to use.
     :param port: The port number to bind the server to.
     """
-    server_address = ("localhost", port)  # Server address tuple
-    httpd = server_class(server_address, handler_class)  # Create serv instance
-    print(f"Starting httpd server on port {port}")  # Log the start of server
-    httpd.serve_forever()  # Start the server
+    server_address = ("localhost", port)
+    httpd = server_class(server_address, handler_class)
+    httpd.serve_forever()
 
 
 if __name__ == "__main__":
-    run()  # Run the server if this script is executed directly
+    run()
