@@ -81,19 +81,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_error(404, "Endpoint not found")  # response 404 error
 
 
-def run(server_class=HTTPServer,
-        handler_class=MyHandler, port=8000):
-    """
-    Set up and start the HTTP server.
-
-    :param server_class: The HTTP server class to use.
-    :param handler_class: The request handler class to use.
-    :param port: The port number to bind the server to.
-    """
-    server_address = ("localhost", port)
-    httpd = server_class(server_address, handler_class)
-    httpd.serve_forever()
-
-
 if __name__ == "__main__":
-    run()
+    PORT = 8000
+    httpd = HTTPServer(('localhost', PORT), MyHandler)
+    httpd.serve_forever()
