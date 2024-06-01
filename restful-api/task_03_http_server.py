@@ -63,7 +63,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
             json_data = json.dumps(data)
             self.wfile.write(json_data.encode("utf-8"))
-
         elif self.path == "/info":
             self.send_response(200)
 
@@ -77,7 +76,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
             json_data = json.dumps(data)
             self.wfile.write(json_data.encode("utf-8"))
-
         elif self.path == "/status":
             self.send_response(200)
 
