@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""import hhtp.server and json module"""
+"""
+import hhtp.server and json module
+
+"""
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
@@ -69,7 +72,7 @@ class MyHandler(BaseHTTPRequestHandler):
         elif self.path == "/status":
             self.send_response(200)
 
-            self.send_header("Content-type", "application/json")
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
 
             self.wfile.write(b"OK")
