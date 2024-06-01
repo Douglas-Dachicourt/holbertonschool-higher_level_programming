@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""
-import http.server module 
-import json module
 
-"""
 import http.server
 import json
 
@@ -33,15 +29,6 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         """Handle GET requests
-
-
-
-
-
-
-
-
-
         """
 
         if self.path == "" or self.path == "/":
