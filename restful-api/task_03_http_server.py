@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """
-This module contain a class SimpleHTTPRequestHandler to let a basic
-python server run
+The http.server module Python’s standard library provides
+basic classes for implementing web servers. While it’s not typically
+used for production applications, it’s a handy tool for building simple
+web servers and understanding the basics of web programming without
+relying on third-party libraries.
 """
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
