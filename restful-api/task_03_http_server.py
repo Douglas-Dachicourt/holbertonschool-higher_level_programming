@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-import hhtp.server and json module
+import http.server module 
+import json module
 
 """
 import http.server
@@ -31,7 +32,17 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
     """
 
     def do_GET(self):
-        """Handle GET requests"""
+        """Handle GET requests
+
+
+
+
+
+
+
+
+
+        """
 
         if self.path == "" or self.path == "/":
             self.send_response(200)
