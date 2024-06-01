@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This module import http.server and json to be able to run a basic server
+This module contain a class SimpleHTTPRequestHandler to let a basic
+python server run
 """
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
@@ -9,8 +10,7 @@ import json
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """
-    class MyHandler : inherits methods from http.server module
-    It is a class to launch a basic server
+    The SimpleHTTPRequestHandler inherits methods from http.server module
 
     Method:
 
