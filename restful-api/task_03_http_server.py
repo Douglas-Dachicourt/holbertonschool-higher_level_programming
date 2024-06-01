@@ -7,7 +7,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
 
-class SimpleHTTPRequestHandler (BaseHTTPRequestHandler):
+class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """
     class MyHandler : inherits methods from http.server module
     It is a class to launch a basic server
@@ -85,9 +85,10 @@ class SimpleHTTPRequestHandler (BaseHTTPRequestHandler):
 
 def run():
     """
-    Let the server run
+    Let the server run on port 8000
     """
     PORT = 8000
+
     httpd = HTTPServer(('localhost', PORT), SimpleHTTPRequestHandler)
     httpd.serve_forever()
 
