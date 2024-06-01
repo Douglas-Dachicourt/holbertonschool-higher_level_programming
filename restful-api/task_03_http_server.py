@@ -33,7 +33,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
         """
 
-        if self.path == "" or self.path == "/":
+        if self.path == "/":
             self.send_response(200)
 
             self.send_header("Content-type", "text/plain")
@@ -83,5 +83,5 @@ class MyHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     PORT = 8000
-    httpd = HTTPServer.HTTPServer(('localhost', PORT), MyHandler)
+    httpd = HTTPServer(('localhost', PORT), MyHandler)
     httpd.serve_forever()
