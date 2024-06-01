@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """This module import http.server and json to be able to run a basic server"""
-import http.server
+
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
@@ -34,7 +34,7 @@ class MyHandler(BaseHTTPRequestHandler):
         """
 
         if self.path == "/":
-            self.send_response(200)
+            self.send_response(200)  # response OK SUCCESS
 
             self.send_header("Content-type", "text/plain")
             self.end_headers()
@@ -42,7 +42,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"Hello, this is a simple API!")
 
         elif self.path == "/data":
-            self.send_response(200)
+            self.send_response(200)  # response OK SUCCESS
 
             self.send_header("Content-type", "application/json")
             self.end_headers()
@@ -56,7 +56,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(json_data.encode("utf-8"))
 
         elif self.path == "/info":
-            self.send_response(200)
+            self.send_response(200)  # response OK SUCCESS
 
             self.send_header("Content-type", "application/json")
             self.end_headers()
@@ -70,7 +70,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(json_data.encode("utf-8"))
 
         elif self.path == "/status":
-            self.send_response(200)
+            self.send_response(200)  # response OK SUCCESS
 
             self.send_header("Content-type", "text/plain")
             self.end_headers()
@@ -78,18 +78,23 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"OK")
 
         else:
-            self.send_error(404, "Endpoint not found")
+            self.send_error(404, "Endpoint not found")  # response 404 error
 
 
-def run():
+def run(server_class=HTTPServer,
+        handler_class=SimpleHTTPRequestHandler, port=8000):
     """
-    Run the server on PORT 8000
+    Set up and start the HTTP server.
 
+    :param server_class: The HTTP server class to use.
+    :param handler_class: The request handler class to use.
+    :param port: The port number to bind the server to.
     """
-    PORT = 8000
-    httpd = HTTPServer(("localhost", PORT), MyHandler)
-    httpd.serve_forever()
+    server_address = ("localhost", port)  # Server address tuple
+    httpd = server_class(server_address, handler_class)  # Create serv instance
+    print(f"Starting httpd server on port {port}")  # Log the start of server
+    httpd.serve_forever()  # Start the server
 
 
 if __name__ == "__main__":
-    run()
+    run()  # Run the server if this script is executed directly
