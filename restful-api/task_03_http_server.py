@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""This module import http.server and json to be able to run a basic server"""
+"""
+This module import http.server and json to be able to run a basic server
+"""
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
@@ -17,7 +19,8 @@ class MyHandler(BaseHTTPRequestHandler):
     """
 
     def do_GET(self):
-        """Handle GET requests to the server
+        """
+        Handle GET requests to the server
 
          Endpoints:
 
@@ -81,7 +84,8 @@ class MyHandler(BaseHTTPRequestHandler):
 
 
 def run():
-    """Let the server run
+    """
+    Let the server run
     """
     PORT = 8000
     httpd = HTTPServer(('localhost', PORT), MyHandler)
