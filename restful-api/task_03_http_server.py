@@ -13,9 +13,17 @@ class MyHandler(BaseHTTPRequestHandler):
 
     -do_GET: method who let the guest make requests to the local server
 
-    => To reach different endpoints : /info, /data
-    => Response status : 200 if reach success, 404 if Not Found
+    Endpoints:
 
+    - Home : "/" or "", prints out a welcoming message
+    - Data : "/data", prints out the data available
+    - Status: "/status", returns status OK
+    - info: "/info", gives information about the server itself
+
+    Status:
+
+    - CODE 200 : request has been successful
+    - CODE 404 : if endpoint is Not Found
 
     """
 
@@ -56,6 +64,14 @@ class MyHandler(BaseHTTPRequestHandler):
 
             json_data = json.dumps(data)
             self.wfile.write(json_data.encode("utf-8"))
+
+        elif self.path == "/status":
+            self.send_response(200)
+
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+
+            self.wfile.write(b"OK")
 
         else:
             self.send_response(404)
