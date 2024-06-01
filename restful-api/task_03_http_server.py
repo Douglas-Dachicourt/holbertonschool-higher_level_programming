@@ -16,13 +16,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     - do_GET: method who let the guest make requests to the local server
 
-    """
-
-    def do_GET(self):
-        """
-        Handle GET requests to the server
-
-         Endpoints:
+    Endpoints:
 
         - Home: "/" or "", prints out a welcoming message
         - Data: "/data", prints out the data available
@@ -33,6 +27,18 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
         - CODE 200: request has been successful
         - CODE 404: if endpoint is Not Found
+
+    """
+
+    def do_GET(self):
+        """
+        Handle GET requests to the server
+
+        - Give an OK status and a welcoming message at initial endpoint
+        - Give an OK status with some JSON data at data endpoint
+        - Give an OK status with some JSON data at info endpoint
+        - Give an Error 404 Not Found status if endpoint does not exist
+
 
         """
 
