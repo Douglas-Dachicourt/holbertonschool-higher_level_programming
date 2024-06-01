@@ -16,6 +16,17 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     - do_GET: method who let the guest make requests to the local server
 
+    Endpoints:
+
+        - Home: "/" or "", prints out a welcoming message
+        - Data: "/data", prints out the data available
+        - Status: "/status", returns status OK
+        - info: "/info", gives information about the server itself
+
+        Status:
+
+        - CODE 200: request has been successful
+        - CODE 404: if endpoint is Not Found
 
     """
 
@@ -82,6 +93,12 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
     Function run
 
     Run the server with the specified server class, handler class, and port
+
+    Parameters:
+
+    - server_class: we use HTTP server
+    - handler_server: the request handler to use
+    - port: we work on local port 8000
 
     """
     server_address = ("localhost", port)
