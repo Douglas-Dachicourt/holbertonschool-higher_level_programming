@@ -9,26 +9,27 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
     class MyHandler : inherits methods from http.server module
     It is a class to launch a basic server
 
-    Method (main):
+    Method:
 
     -do_GET: method who let the guest make requests to the local server
-
-    Endpoints:
-
-    - Home : "/" or "", prints out a welcoming message
-    - Data : "/data", prints out the data available
-    - Status: "/status", returns status OK
-    - info: "/info", gives information about the server itself
-
-    Status:
-
-    - CODE 200 : request has been successful
-    - CODE 404 : if endpoint is Not Found
 
     """
 
     def do_GET(self):
-        """Handle GET requests
+        """Handle GET requests to the server
+
+         Endpoints:
+
+        - Home : "/" or "", prints out a welcoming message
+        - Data : "/data", prints out the data available
+        - Status: "/status", returns status OK
+        - info: "/info", gives information about the server itself
+
+        Status:
+
+        - CODE 200 : request has been successful
+        - CODE 404 : if endpoint is Not Found
+
         """
 
         if self.path == "" or self.path == "/":
@@ -76,8 +77,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b"OK")
 
         else:
-            self.send_error(404)
-            self.wfile.write(b"Endpoint not found")
+            self.send_error(404, "Endpoint not found")
 
 
 if __name__ == "__main__":
