@@ -42,14 +42,14 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         """
 
         if self.path == "/":
-            self.send_response(200)  # response OK SUCCESS
+            self.send_response(200)  # HTTP 200 OK SUCCESS
 
             self.send_header("Content-type", "text/plain")
             self.end_headers()
 
-            self.wfile.write(b"Hello, this is a simple API!")
+            self.wfile.write(b"Hello, this is a simple API!")  # response body
         elif self.path == "/data":
-            self.send_response(200)  # response OK SUCCESS
+            self.send_response(200)  # HTTP 200 OK SUCCESS
 
             self.send_header("Content-type", "application/json")
             self.end_headers()
@@ -60,10 +60,10 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 "city": "New York"
             }
 
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-
+            json_data = json.dumps(data)
+            self.wfile.write(json_data.encode("utf-8"))  # response body
         elif self.path == "/info":
-            self.send_response(200)
+            self.send_response(200)  # HTTP 200 OK SUCCESS
 
             self.send_header("Content-type", "application/json")
             self.end_headers()
@@ -73,17 +73,17 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 "description": "A simple API built with http.server"
             }
 
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-
+            json_data = json.dumps(data)
+            self.wfile.write(json_data.encode("utf-8"))  # response body
         elif self.path == "/status":
-            self.send_response(200)
+            self.send_response(200)  # HTTP 200 OK SUCCESS
 
             self.send_header("Content-type", "text/plain")
             self.end_headers()
 
-            self.wfile.write(b"OK")
+            self.wfile.write(b"OK")  # response body
         else:
-            self.send_error(404, "Endpoint not found")
+            self.send_error(404, "Endpoint not found")  # HTTP 404 Not Found
 
 
 def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
