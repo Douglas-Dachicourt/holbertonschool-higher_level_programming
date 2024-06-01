@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""import http.server and json modules"""
 import http.server
 import json
 
@@ -76,7 +76,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b"OK")
 
         else:
-            self.send_response(404)
+            self.send_error(404)
 
             self.send_header("Content-type", "text/plain")
             self.end_headers()
