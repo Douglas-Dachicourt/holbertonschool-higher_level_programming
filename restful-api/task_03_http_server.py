@@ -16,17 +16,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     - do_GET: method who let the guest make requests to the local server
 
-    Endpoints:
-
-        - Home: "/" or "", prints out a welcoming message
-        - Data: "/data", prints out the data available
-        - Status: "/status", returns status OK
-        - info: "/info", gives information about the server itself
-
-        Status:
-
-        - CODE 200: request has been successful
-        - CODE 404: if endpoint is Not Found
 
     """
 
