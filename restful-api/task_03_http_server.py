@@ -60,8 +60,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 "city": "New York"
             }
 
-            json_data = json.dumps(data)
-            self.wfile.write(json_data.encode("utf-8"))
+            self.wfile.write(json.dumps(data).encode("utf-8"))
+
         elif self.path == "/info":
             self.send_response(200)
 
@@ -73,8 +73,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
                 "description": "A simple API built with http.server"
             }
 
-            json_data = json.dumps(data)
-            self.wfile.write(json_data.encode("utf-8"))
+            self.wfile.write(json.dumps(data).encode("utf-8"))
+
         elif self.path == "/status":
             self.send_response(200)
 
