@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""import http.server and json modules"""
+"""This module import http.server and json to be able to run a basic server"""
 import http.server
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
@@ -81,7 +81,15 @@ class MyHandler(BaseHTTPRequestHandler):
             self.send_error(404, "Endpoint not found")
 
 
-if __name__ == "__main__":
+def run():
+    """
+    Run the server on PORT 8000
+
+    """
     PORT = 8000
-    httpd = HTTPServer(('localhost', PORT), MyHandler)
+    httpd = HTTPServer(("localhost", PORT), MyHandler)
     httpd.serve_forever()
+
+
+if __name__ == "__main__":
+    run()
