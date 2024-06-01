@@ -83,6 +83,7 @@ class MyHandler(BaseHTTPRequestHandler):
             self.wfile.write(b"Endpoint not found")
 
 
-PORT = 8000
-httpd = HTTPServer(('localhost', PORT), MyHandler)
-httpd.serve_forever()
+if __name__ == "__main__":
+    PORT = 8000
+    httpd = HTTPServer(('localhost', PORT), MyHandler)
+    httpd.serve_forever()
