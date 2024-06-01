@@ -3,11 +3,11 @@
 import hhtp.server and json module
 
 """
-from http.server import HTTPServer, BaseHTTPRequestHandler
+import http.server
 import json
 
 
-class MyHandler(BaseHTTPRequestHandler):
+class MyHandler(http.server.BaseHTTPRequestHandler):
     """
     class MyHandler : inherits methods from http.server module
     It is a class to launch a basic server
@@ -88,5 +88,5 @@ class MyHandler(BaseHTTPRequestHandler):
 
 if __name__ == "__main__":
     PORT = 8000
-    httpd = HTTPServer(('localhost', PORT), MyHandler)
+    httpd = http.server.HTTPServer(('localhost', PORT), MyHandler)
     httpd.serve_forever()
