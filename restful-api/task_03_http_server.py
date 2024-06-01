@@ -87,13 +87,16 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_error(404, "Endpoint not found")
 
 
-def run():
+def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
+        port=8000):
     """
-    Let the server run on port 8000
-    """
-    PORT = 8000
+    Function run
 
-    httpd = HTTPServer(('localhost', PORT), SimpleHTTPRequestHandler)
+    Run the server with the specified server class, handler class, and port
+
+    """
+    server_address = ("localhost", port)
+    httpd = server_class(server_address, handler_class)
     httpd.serve_forever()
 
 
