@@ -10,7 +10,7 @@ users = {}
 
 @app.route("/")
 def home():
-    return f"Welcome to the Flask API!"
+    return "Welcome to the Flask API!"
 
 
 @app.route("/data")
@@ -47,4 +47,4 @@ def add_user():
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run()
