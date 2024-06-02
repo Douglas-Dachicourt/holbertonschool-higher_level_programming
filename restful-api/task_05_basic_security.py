@@ -3,9 +3,7 @@ from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import (
-    create_access_token,
-    jwt_required,
-    JWTManager,
+    create_access_token, jwt_required, JWTManager,
     get_jwt_identity)
 
 
@@ -13,6 +11,7 @@ app = Flask(__name__)
 auth = HTTPBasicAuth()
 jwt = JWTManager(app)
 app.config['JWT_SECRET_KEY'] = 'secured_key'
+
 
 users = {
     "user1":
@@ -42,15 +41,14 @@ def login():
     data = request.get_json()
     username = data.get("username")
     password = data.get("password")
+    user = data.get(username)
 
-    if username in users and \
-            check_password_hash(users[username]["password"], password):
-
+    if data and check_password_hash(user["password"], password):
         access_token = create_access_token(
             identity={"username": username, "role": users[username]["role"]})
         return jsonify(access_token=access_token)
     else:
-        return jsonify({"error": "invalid credential"}), 401
+        return jsonify({"error": "invalid credentials"}), 401
 
 
 @app.route("/jwt-protected", methods=["GET"])
@@ -60,7 +58,7 @@ def jwt_protected():
 
 
 @app.route("/admin-only", methods=["GET"])
-@jwt_required()
+@jwt_required
 def admin_only():
     current_user = get_jwt_identity()
     if current_user["role"] == "admin":
