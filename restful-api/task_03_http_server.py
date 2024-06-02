@@ -112,4 +112,4 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
 
 
 if __name__ == "__main__":
-    run()  # run the server if it is exectued through the script
+    run()
