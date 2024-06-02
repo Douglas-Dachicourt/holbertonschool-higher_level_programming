@@ -71,7 +71,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
             response = {
                 "version": "1.0",
-                "description": "A simple API built with http.server"
+                "description": "A simple API built with http.server",
             }
 
             json_data = json.dumps(response)
