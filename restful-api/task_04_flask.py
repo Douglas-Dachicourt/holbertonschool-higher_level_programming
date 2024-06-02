@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""import Flask, jsonify modules"""
+"""import Flask, jsonify  and request modules"""
 from flask import Flask, jsonify, request
 
 
@@ -20,7 +20,7 @@ def data():
 
 @app.route("/status")
 def status():
-    return f"OK"
+    return "OK"
 
 
 @app.route("/users/<username>")
@@ -29,21 +29,21 @@ def user_to_find(username):
         return jsonify(users[username])
     else:
         error = {"error": "User not found"}
-        return jsonify(error), 404
+        return jsonify(error)
 
 
 @app.route("/add_user", methods=["POST"])
 def add_user():
-    if request.method == "POST":
-        user_data = request.get_json()
 
-        username = user_data.get("username")
+    user_data = request.get_json()
 
-        users[username] = user_data
-        return jsonify({
-            "message": "User added",
-            "user": user_data
-        })
+    username = user_data.get("username")
+
+    users[username] = user_data
+    return jsonify({
+        "message": "User added",
+        "user": user_data
+    })
 
 
 if __name__ == "__main__":
