@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """import Flask, jsonify  and request modules"""
-from flask import Flask, jsonify, request
+from flask import Flask
+from flask import jsonify
+from flask import request
 
 
 app = Flask(__name__)
@@ -49,7 +51,7 @@ def add_user():
 
     # we check if username is given
     if not username:
-        return jsonify({"error": "User is required"}), 400
+        return jsonify({"error": "Username is required"}), 400
 
     # we create the new user
     users[username] = user_data
@@ -60,4 +62,4 @@ def add_user():
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run()
