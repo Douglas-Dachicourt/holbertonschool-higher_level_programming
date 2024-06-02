@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """
-This module contain a class SimpleHTTPRequestHandler to let a basic
-python server run
+This module contains a class SimpleHTTPRequestHandler to set up a web server.
 """
+
 import http.server
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
@@ -10,102 +10,64 @@ import json
 
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     """
-    The SimpleHTTPRequestHandler inherits methods from http.server module
-
-    Method:
-
-    - do_GET: method who let the guest make requests to the local server
-
-    Endpoints:
-
-        - Home: "/" or "", prints out a welcoming message
-        - Data: "/data", prints out the data available
-        - Status: "/status", returns status OK
-        - info: "/info", gives information about the server itself
-
-        Status:
-
-        - CODE 200: request has been successful
-        - CODE 404: if endpoint is Not Found
-
+    Simple HTTP request handler with GET endpoints.
     """
 
     def do_GET(self):
         """
-        Handle GET requests to the server
+        Handle GET requests.
 
-        - Give an OK status and a welcoming message at initial endpoint
-        - Give an OK status with some JSON data at data endpoint
-        - Give an OK status with some JSON data at info endpoint
-        - Give an Error 404 Not Found status if endpoint does not exist
-
-
+        - Responds with a greeting message at the root endpoint.
+        - Serves JSON data at the /data endpoint.
+        - Provides an OK status at the /status endpoint.
+        - Returns a 404 Not Found for undefined endpoints.
         """
-
+        # Check the requested path and respond accordingly
         if self.path == "/":
-            self.send_response(200)  # HTTP 200 OK SUCCESS
-
+            self.send_response(200)  # HTTP status 200 OK
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-
-            self.wfile.write(b"Hello, this is a simple API!")  # response body
+            self.wfile.write(b"Hello, this is a simple API!")  # Response body
         elif self.path == "/data":
-            self.send_response(200)  # HTTP 200 OK SUCCESS
-
+            self.send_response(200)  # HTTP status 200 OK
             self.send_header("Content-type", "application/json")
             self.end_headers()
-
-            response = {
-                "name": "John",
-                "age": 30,
-                "city": "New York"
-            }
-
-            json_data = json.dumps(response)
-            self.wfile.write(json_data.encode("utf-8"))  # response body
+            response = {"name": "John", "age": 30, "city": "New York"}
+            self.wfile.write(json.dumps(response).encode("utf-8"))
+        elif self.path == "/status":
+            self.send_response(200)  # HTTP status 200 OK
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
         elif self.path == "/info":
-            self.send_response(200)  # HTTP 200 OK SUCCESS
-
+            self.send_response(200)  # HTTP status 200 OK
             self.send_header("Content-type", "application/json")
             self.end_headers()
-
             response = {
                 "version": "1.0",
-                "description": "A simple API built with http.server"
+                "description": "A simple API built with http.server",
             }
-
-            json_data = json.dumps(response)
-            self.wfile.write(json_data.encode("utf-8"))  # response body
-        elif self.path == "/status":
-            self.send_response(200)  # HTTP 200 OK SUCCESS
-
-            self.send_header("Content-type", "text/plain")
-            self.end_headers()
-
-            self.wfile.write(b"OK")  # response body
+            self.wfile.write(json.dumps(response).encode("utf-8"))
         else:
-            self.send_error(404, "Endpoint not found")  # HTTP 404 Not Found
+            # HTTP status 404 Not Found
+            self.send_error(404, "Endpoint not found")
 
 
 def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
         port=8000):
     """
-    Function run
+    Set up and start the HTTP server.
 
-    Run the server with the specified server class, handler class, and port
-
-    Parameters:
-
-    - server_class: we use HTTP server
-    - handler_server: the request handler to use
-    - port: we work on local port 8000
-
+    :param server_class: The HTTP server class to use.
+    :param handler_class: The request handler class to use.
+    :param port: The port number to bind the server to.
     """
-    server_address = ("localhost", port)
+    server_address = ("localhost", port)  # Server address tuple
+    # Create server instance
     httpd = server_class(server_address, handler_class)
-    print(f"Server launched on port {port}")
-    httpd.serve_forever()
+    print(f"Starting httpd server on port {port}")  # Log the start of server
+    httpd.serve_forever()  # Start the server
 
 
 if __name__ == "__main__":
-    run()  # run the server if it is exectued through the script
+    run()  # Run the server if this script is executed directly
