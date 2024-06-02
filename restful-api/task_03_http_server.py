@@ -4,7 +4,7 @@ This module contain a class SimpleHTTPRequestHandler to let a basic
 python server run
 """
 import http.server
-from http.server import HTTPServer, BaseHTTPRequestHandler
+from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 
@@ -55,13 +55,13 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
 
-            data = {
+            response = {
                 "name": "John",
                 "age": 30,
                 "city": "New York"
             }
 
-            json_data = json.dumps(data)
+            json_data = json.dumps(response)
             self.wfile.write(json_data.encode("utf-8"))  # response body
         elif self.path == "/info":
             self.send_response(200)  # HTTP 200 OK SUCCESS
@@ -69,12 +69,12 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
 
-            data = {
+            response = {
                 "version": "1.0",
                 "description": "A simple API built with http.server"
             }
 
-            json_data = json.dumps(data)
+            json_data = json.dumps(response)
             self.wfile.write(json_data.encode("utf-8"))  # response body
         elif self.path == "/status":
             self.send_response(200)  # HTTP 200 OK SUCCESS
@@ -101,7 +101,7 @@ def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
     - port: we work on local port 8000
 
     """
-    server_address = ("", port)
+    server_address = ("localhost", port)
     httpd = server_class(server_address, handler_class)
     print(f"Server launched on port {port}")
     httpd.serve_forever()
