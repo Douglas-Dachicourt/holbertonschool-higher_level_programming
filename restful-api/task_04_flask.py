@@ -46,7 +46,7 @@ def add_user():
     username = user_data.get("username")
 
     # we check if username does already exists or not
-    if username in users:
+    if username:
         return jsonify({"error": "Username already exists"}), 400
 
     # we check if username is given
