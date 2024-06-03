@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+""" import flask, werzeug and jwt modules"""
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import (
-    create_access_token, jwt_required, JWTManager,
+    create_access_token,
+    jwt_required,
+    JWTManager,
     get_jwt_identity
 )
 
@@ -30,6 +33,8 @@ def verify_password(username, password):
     if username in users and \
             check_password_hash(users[username]["password"], password):
         return username
+    else:
+        return None
 
 
 @app.route("/basic-protected", methods=["GET"])

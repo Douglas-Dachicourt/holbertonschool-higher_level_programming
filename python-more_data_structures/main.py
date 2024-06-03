@@ -1,12 +1,19 @@
 #!/usr/bin/python3
-square_matrix_simple = __import__('0-square_matrix_simple').square_matrix_simple
+""" Roman to Integer test file
+"""
+roman_to_int = __import__('12-roman_to_int').roman_to_int
 
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+roman_number = "X"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
-new_matrix = square_matrix_simple(matrix)
-print(new_matrix)
-print(matrix)
+roman_number = "VII"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = "IX"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = "LXXXVII"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+roman_number = "DCCVII"
+print("{} = {}".format(roman_number, roman_to_int(roman_number)))

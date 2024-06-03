@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-Rectangle = __import__('0-rectangle').Rectangle
+Rectangle = __import__('9-rectangle').Rectangle
 
-my_rectangle = Rectangle()
-print(type(my_rectangle))
-print(my_rectangle.__dict__)
+my_square = Rectangle.square(10)
+print("Area: {} - Perimeter: {}".format(my_square.area(), my_square.perimeter()))
+print(my_square)

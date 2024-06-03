@@ -20,6 +20,7 @@ def save_to_json_file(my_obj, filename):
     a json file file with the name of the oject saved
 
     """
+
     with open(filename, "w", encoding="utf-8") as fic:
         x = json.dump(my_obj, fic)
         return x

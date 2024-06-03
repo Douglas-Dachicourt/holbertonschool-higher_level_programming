@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-from task_00_abc import Animal, Dog, Cat
+from task_05_dragon import Dragon
 
-bobby = Dog()
-garfield = Cat()
-
-print(bobby.sound())
-print(garfield.sound())
-
-animal = Animal()
-print(animal.sound())
+dragon = Dragon()
+dragon.swim()  # Outputs: The creature swims!
+dragon.fly()   # Outputs: The creature flies!
+dragon.roar()  # Outputs: The dragon roars!
