@@ -49,7 +49,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
             self.wfile.write(b"Hello, this is a simple API!")
-
         elif self.path == "/data":
             self.send_response(200)
 
@@ -64,7 +63,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
             json_data = json.dumps(response)
             self.wfile.write(json_data.encode("utf-8"))
-
         elif self.path == "/status":
             self.send_response(200)
 
@@ -72,7 +70,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
             self.wfile.write(b"OK")
-
         elif self.path == "/info":
             self.send_response(200)
 
@@ -86,9 +83,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
             json_data = json.dumps(response)
             self.wfile.write(json_data.encode("utf-8"))
-
         else:
-            self.send_error(404, "Endpoint not found"), 404
+            self.send_error(404, "Endpoint not found")
 
 
 def run(server_class=HTTPServer, handler_class=SimpleHTTPRequestHandler,
