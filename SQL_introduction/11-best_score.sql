@@ -1,4 +1,4 @@
 -- Script that lists all records with a score >= 10 in the table second_table
 
 -- Display both scores & names ordered by score (top first)
-SELECT score, name FROM second_table ORDER BY score DESC, score >= 10;
+SELECT score, name FROM second_table WHERE score ORDER BY DESC AND score >= 10;
