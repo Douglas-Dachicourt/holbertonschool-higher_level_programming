@@ -1,2 +1,4 @@
 -- Create a database 
-create database hbtn_0c_0;
+
+-- Use the Create command to create a database
+CREATE database hbtn_0c_0;
