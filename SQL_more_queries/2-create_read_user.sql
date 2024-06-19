@@ -4,6 +4,6 @@
 CREATE DATABASE IF NOT EXISTS hbtn_0d_2;
 -- Create a new user
 CREATE USER IF NOT EXISTS
-    'user_0d_2'@'hbtn_0d_2' IDENTIFIED BY 'user_0d_2_pwd'
+    'user_0d_2'@'localhost' IDENTIFIED BY 'user_0d_2_pwd'
 -- Giving select privilege only to the created user
-GRANT SELECT on *.* TO 'user_0d_2'@'hbtn_0d_2';
+GRANT SELECT on 'hbtn_0d_2'.* TO 'user_0d_2'@'localhost';
