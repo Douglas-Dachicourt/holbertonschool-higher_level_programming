@@ -3,5 +3,5 @@
 -- Using 'JOIN' method to get interaction between two tables
 SELECT cities.id, cities.name, states.name
 FROM cities, states
-JOIN cities.state_id = states.id
+JOIN cities.id ON cities.state_id = states.id
 ORDER BY cities.id
