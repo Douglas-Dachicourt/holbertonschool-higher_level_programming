@@ -5,6 +5,6 @@ CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 -- Use this database
 USE hbtn_0d_usa;
 -- Command 'Select' combined to 'Where' and 'Order by'
-SELECT cities.id, cities.name FROM states 
-WHERE states.name = 'California' 
-ORDER BY cities.id ASC;
+SELECT * FROM states
+WHERE states.name = 'California'
+ORDER BY states.id;
