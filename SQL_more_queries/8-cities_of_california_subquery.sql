@@ -4,6 +4,6 @@
 USE hbtn_0d_usa;
 -- Command 'Select' combined to 'Where' and 'Order by'
 SELECT name
-FROM states, cities
-WHERE name = 'California'
+FROM cities
+WHERE state = 'California'
 ORDER BY cities.id;
