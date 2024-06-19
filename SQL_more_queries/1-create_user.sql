@@ -4,6 +4,4 @@
 CREATE USER IF NOT EXISTS 
     'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd' ;
 -- Giving all privileges on the server
-GRANT ALL PRIVILEGES on *.* TO 'user_0d_1'@'localhost' WITH GRANT OPTION;
--- Confirm privileges changes
-FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES on *.* TO 'user_0d_1'@'localhost';
