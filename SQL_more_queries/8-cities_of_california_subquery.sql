@@ -6,6 +6,6 @@ CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 USE hbtn_0d_usa;
 -- Command 'Select' combined to 'Where' and 'Order by'
 SELECT name
-FROM states
+FROM states, cities
 WHERE name = 'California'
 ORDER BY cities.id;
