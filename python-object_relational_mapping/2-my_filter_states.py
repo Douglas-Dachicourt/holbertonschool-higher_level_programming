@@ -20,10 +20,18 @@ if __name__ == "__main__":
         database=database)
 
     c = db.cursor()
-    c.execute("""SELECT * FROM states
-    ORDER BY id""")
+
+    query = """SELECT * FROM states
+    WHERE BINARY name = {}
+    ORDER BY id""".format(state)
+
+    c.execute(query)
+
     results = c.fetchall()
 
     for row in results:
         if state in row:
-            print("{}".format(row))
+            print(row)
+
+    c.close()
+    db.close()
