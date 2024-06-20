@@ -22,7 +22,7 @@ if __name__ == "__main__":
     c = db.cursor()
 
     query = """SELECT * FROM states
-    WHERE BINARY name = {}
+    WHERE BINARY name = '{}'
     ORDER BY id""".format(state)
 
     c.execute(query)
