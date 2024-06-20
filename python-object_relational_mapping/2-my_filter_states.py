@@ -26,4 +26,4 @@ if __name__ == "__main__":
 
     for row in results:
         if state in row:
-            print(row)
+            print("{}".format(row))
