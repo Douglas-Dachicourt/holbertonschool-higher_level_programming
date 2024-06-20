@@ -20,7 +20,7 @@ if __name__ == "__main__":
         database=database)
 
     c = db.cursor()
-    query = """SELECT * FROM states 
+    query = """SELECT * FROM states
     WHERE name = %s
     ORDER BY id"""
     c.execute(query, (state,))
