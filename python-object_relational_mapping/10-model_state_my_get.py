@@ -20,7 +20,7 @@ if __name__ == "__main__":
     session = Session()
 
     states = session.query(State).filter(
-        State.name.like(f"%{state_arg}%")).all()
+        State.name.like("{}".format(state_arg))).all()
 
     if not states:
         print("Not found")
