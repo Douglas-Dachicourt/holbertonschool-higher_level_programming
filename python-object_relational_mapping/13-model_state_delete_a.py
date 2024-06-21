@@ -21,10 +21,9 @@ if __name__ == "__main__":
 
     letter = 'a'
 
-    for state in states:
-        if letter in state.name:
-            session.delete(state)
-            session.commit()
-            print("{}: {}".format(state.id, state.name))
+    if letter in states:
+        session.delete(states)
+        session.commit()
+        print("{}: {}".format(states.id, states.name))
 
     session.close()
