@@ -26,15 +26,16 @@ if __name__ == "__main__":
     SELECT cities.name
     FROM cities
     JOIN states ON cities.state_id = states.id
-    WHERE BINARY states.name = %s
+    WHERE BINARY states.name = '{}'
     ORDER BY cities.id
-    """
+    """.format(state)
 
-    c.execute(query, (state,))
+    c.execute(query)
 
     results = c.fetchall()
 
-    print(results)
+    t = ", ".join(row[0] for row in results)
+    print(t)
 
     c.close()
     db.close()
