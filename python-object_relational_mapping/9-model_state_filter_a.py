@@ -22,9 +22,10 @@ if __name__ == "__main__":
 
     states = session.query(State).all()
 
+    letter = 'a'
+
     for state in states:
-        for letter in state.name:
-            if letter == 'a':
-                print("{}: {}".format(state.id, state.name))
+        if letter in state.name:
+            print("{}: {}".format(state.id, state.name))
 
     session.close()
