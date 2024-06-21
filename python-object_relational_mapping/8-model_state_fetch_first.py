@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     Base.metadata.create_all(engine)
 
-    states = session.query(State).all()
+    states = session.query(State)
 
     if states == "":
         print()
