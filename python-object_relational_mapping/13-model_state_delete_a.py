@@ -25,5 +25,6 @@ if __name__ == "__main__":
         if letter in state.name:
             session.delete(state)
             session.commit()
+            print("{}: {}".format(state.id, state.name))
 
     session.close()
