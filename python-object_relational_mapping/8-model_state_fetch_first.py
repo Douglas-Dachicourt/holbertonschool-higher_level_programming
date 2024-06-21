@@ -19,13 +19,11 @@ if __name__ == "__main__":
 
     Base.metadata.create_all(engine)
 
-    states = session.query(State)
+    states = session.query(State).first()
 
-    if states == "":
-        print()
+    if states:
+        print("{}: {}".format(states.id, states.name))
     else:
-        for state in states:
-            if state.id == 1:
-                print("{}: {}".format(state.id, state.name))
+        print("Nothing\n")
 
     session.close()
