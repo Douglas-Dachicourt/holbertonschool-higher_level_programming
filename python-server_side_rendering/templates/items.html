@@ -1,11 +1,10 @@
 {% block title %}Items List{% endblock %}
 {% if items %}
+    <ul>
     {% for item in items %}
-        <ul>
-            <li>{{ item }}</li>
-        </ul>       
+        <li>{{ item }}</li>       
     {% endfor %}
-{% endif %}
-{% if items|length == 0 %}
+    </ul>
+{% else %}
     <p>No items found</p>
 {% endif %}
