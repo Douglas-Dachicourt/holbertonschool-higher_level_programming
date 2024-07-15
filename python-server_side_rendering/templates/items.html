@@ -1,8 +1,5 @@
 {% block title %}Items List{% endblock %}
-
-{% block content %}
-
-{% if items and items|length > 0 %}
+{% if items %}
     {% for item in items %}
         <ul>
             <li>{{ item }}</li>
@@ -11,5 +8,3 @@
 {% else %}
     <p>No items found</p>
 {% endif %}
-
-{% endblock %}
