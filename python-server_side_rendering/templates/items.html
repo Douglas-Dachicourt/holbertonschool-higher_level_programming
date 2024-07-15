@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if items %}
+{% if items and items !='' %}
     {% for item in items %}
         <ul>
             <li>{{ item }}</li>
