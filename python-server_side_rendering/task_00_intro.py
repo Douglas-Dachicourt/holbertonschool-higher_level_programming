@@ -9,7 +9,8 @@ def generate_invitations(template, attendees):
         raise TypeError("Attendees must be a list of dictionaries")  
          
     if template is None or template == '':
-        raise TypeError("Template is empty, no output files generated.")
+        print("Error: Template is empty, no output files generated.")
+        return
 
     if not attendees:
         raise TypeError("No data provided, no output files generated.")
