@@ -1,0 +1,10 @@
+{% block title %}Items List{% endblock %}
+{% for item in 'items.json' %}
+{% if item %}
+    <ul>
+        <li>{{ item }}</li>
+    </ul>
+{% else %}
+    <p>No items found</p>
+{% endif %}    
+{% endfor %}
