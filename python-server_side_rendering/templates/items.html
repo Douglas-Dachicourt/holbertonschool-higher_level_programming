@@ -5,6 +5,7 @@
             <li>{{ item }}</li>
         </ul>       
     {% endfor %}
-{% else %}
+{% endif %}
+{% if items|length == 0 %}
     <p>No items found</p>
 {% endif %}
