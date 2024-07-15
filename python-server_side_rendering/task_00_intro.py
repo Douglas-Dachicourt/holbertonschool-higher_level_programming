@@ -3,17 +3,20 @@ import os
 def generate_invitations(template, attendees):
 
     if not isinstance(template, str):
-        raise TypeError("Template must be a string")
+        print("Error: Template must be a string")
+        return
     
     if not isinstance(attendees, list):
-        raise TypeError("Attendees must be a list of dictionaries")  
-         
+        print("Error: Attendees must be a list of dictionaries")  
+        return
+
     if template is None or template == '':
         print("Error: Template is empty, no output files generated.")
         return
 
     if not attendees:
-        raise TypeError("No data provided, no output files generated.")
+        print("Error: No data provided, no output files generated.")
+        return
     
     def get_value(key, attendee):
         return attendee.get(key, "N/A") if attendee.get(key) else "N/A"
