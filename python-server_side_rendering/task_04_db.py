@@ -75,7 +75,7 @@ def products():
                 cursor.execute('SELECT * FROM Products')
                 rows = cursor.fetchall()
                 products = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]} for row in rows]
-                return render_template('product_display', products=products)       
+                return render_template('product_display.html', products=products)       
             else:
                 cursor.execute('SELECT * FROM Products WHERE id=?', (id,))
                 row=cursor.fetchone()
