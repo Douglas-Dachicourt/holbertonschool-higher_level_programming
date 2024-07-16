@@ -82,7 +82,7 @@ def products():
                 row = cursor.fetchone()
                 #print(row)
                 if row:
-                    item = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]}]
+                    item = {"id": row[0], "name": row[1], "category": row[2], "price": row[3]}
                     #print(item)
                     return render_template('product_display.html', item=item) 
                 else:
