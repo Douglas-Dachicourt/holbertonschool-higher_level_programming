@@ -20,10 +20,10 @@ def items():
     try:
         with open("items.json", "r") as file:
             data = json.load(file)
-            if items in data:
+            if 'items' in data:
                 return render_template('items.html', items=data['items'])
             else:
-                return "No key 'items' found", 500
+                return "No items found"
     except FileNotFoundError:
         return "Error: No Json file found", 404
 
