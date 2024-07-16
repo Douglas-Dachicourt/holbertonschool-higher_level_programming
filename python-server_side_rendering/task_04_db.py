@@ -74,7 +74,7 @@ def products():
             if not id:
                 cursor.execute('SELECT * FROM Products')
                 rows = cursor.fetchall()
-                products = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]}]
+                products = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]} for row in rows]
                 return render_template('product_display', products=products)       
             else:
                 cursor.execute('SELECT * FROM Products WHERE id=?', (id,))
