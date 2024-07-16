@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request
 import json
 import csv
 import sqlite3
@@ -84,6 +84,9 @@ def products():
                     return render_template('product_display.html', item=item) 
                 return "Product not found"
         
+        except ValueError:
+            return "Invalid ID"
+
         except sqlite3.Error as e:
             return f"An Error has occured: {e}"
         
