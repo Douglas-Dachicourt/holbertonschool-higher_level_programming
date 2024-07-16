@@ -34,31 +34,42 @@ def products():
     id = query_params.get('id')
 
     if source == 'json':
-        with open('products.json', 'r') as file:
-            data = json.load(file)
-            if not id:
-                return render_template('product_display.html', products=data)
-            else:
-                for item in data:
-                    if str(item["id"]) == id:
-                        return render_template('product_display.html', item=item)
-                return "No product found"
+        try:
+            with open('products.json', 'r') as file:
+                data = json.load(file)
+                if not id:
+                    return render_template('product_display.html', products=data)
+                else:
+                    for item in data:
+                        if str(item["id"]) == id:
+                            return render_template('product_display.html', item=item)
+                    return "Product not found"
+        except FileNotFoundError:
+            return "No Json file found"
 
     elif source == 'csv':
-        products = []
-        with open('products.csv', newline="") as file:
-            data = csv.DictReader(file)
-            for row in data:
-                products.append(row)
-            if not id:
-                return render_template('product_display.html', products=products)
-            else:
-                for product in products:
-                    if product["id"] == id:
-                        return render_template('product_display.html', item=product)
-                return "No product found"
+        try:
+            products = []
+            with open('products.csv', newline="") as file:
+                data = csv.DictReader(file)
+                for row in data:
+                    products.append({
+                        "name": row["Name"],
+                        "category": row["Category"],
+                        "price": row["Price"]
+                    })
+                if not id:
+                    return render_template('product_display.html', products=products)
+                else:
+                    for product in products:
+                        if product["id"] == id:
+                            return render_template('product_display.html', item=product)
+                    return "Product not found"
+        except FileNotFoundError:
+            return "No Csv file found"
+        
     else:
-        return "Invalid source"
+        return "Wrong source"
                 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
