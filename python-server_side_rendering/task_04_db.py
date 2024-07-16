@@ -79,14 +79,14 @@ def products():
                 return render_template('product_display.html', products=products)       
             else:
                 cursor.execute('SELECT * FROM Products WHERE id=?', (id,))
-                row=cursor.fetchone()
+                row = cursor.fetchone()
                 #print(row)
-                if row is not None:
+                if row:
                     item = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]}]
                     #print(item)
                     return render_template('product_display.html', item=item) 
                 else:
-                    return "Product not found"
+                    return render_template('product_display.html', error=f"Failed: Product not found for ID {id} in SQL source")
 
         except sqlite3.Error as e:
             return f"An Error has occured: {e}"
