@@ -55,7 +55,7 @@ def products():
                 reader = csv.DictReader(file)
                 for row in reader:
                     products.append(row)
-                    print(products)
+                    #print(products)
                 if not id:
                     return render_template('product_display.html', products=products)
                 else:
@@ -71,19 +71,22 @@ def products():
             conn = sqlite3.connect('products.db')
             cursor = conn.cursor()
 
-            if not id:
+            if id is None:
                 cursor.execute('SELECT * FROM Products')
                 rows = cursor.fetchall()
+                #print(rows)
                 products = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]} for row in rows]
                 return render_template('product_display.html', products=products)       
             else:
                 cursor.execute('SELECT * FROM Products WHERE id=?', (id,))
                 row=cursor.fetchone()
-                if row:
+                #print(row)
+                if row is not None:
                     item = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]}]
+                    #print(item)
                     return render_template('product_display.html', item=item) 
                 else:
-                    return f"Product not found for ID {id} in SQL source"
+                    return "Product not found"
 
         except sqlite3.Error as e:
             return f"An Error has occured: {e}"
