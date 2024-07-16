@@ -82,10 +82,8 @@ def products():
                 if row:
                     item = [{"id": row[0], "name": row[1], "category": row[2], "price": row[3]}]
                     return render_template('product_display.html', item=item) 
-                return "Product not found"
-        
-        except ValueError:
-            return "Invalid ID"
+                else:
+                    return f"Product not found for ID {id} in SQL source"
 
         except sqlite3.Error as e:
             return f"An Error has occured: {e}"
