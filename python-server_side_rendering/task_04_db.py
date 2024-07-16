@@ -86,7 +86,7 @@ def products():
                     #print(item)
                     return render_template('product_display.html', item=item) 
                 else:
-                    return render_template('product_display.html', error=f"Failed: Product not found for ID {id} in SQL source")
+                    return "Product not found"
 
         except sqlite3.Error as e:
             return f"An Error has occured: {e}"
