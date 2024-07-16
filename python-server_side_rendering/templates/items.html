@@ -3,9 +3,10 @@
 <head>
     <title>Items List</title>
 </head>
-{% include 'header.html' %}
 <body>
+    {% include 'header.html' %}
     <main>
+        <h1>Items List</h1>
         {% if items %}
             <ul>
             {% for item in items %}
