@@ -21,7 +21,7 @@ def items():
         with open("items.json", "r") as file:
             data = json.load(file)
             if 'items' in data:
-                return render_template('items.html', [])
+                return render_template('items.html', items=data['items'])
             else:
                 return "No items found"
     except FileNotFoundError:
