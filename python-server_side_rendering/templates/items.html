@@ -1,12 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>
-        {% block title %}Items List{% endblock %}
-    </title>
+    <title>Items List</title>
 </head>
+{% include 'header.html' %}
 <body>
-    <h2>Items List</h2>
     {% if items %}
         <ul>
         {% for item in items %}
@@ -17,4 +15,5 @@
         <p>No items found</p>
     {% endif %}   
 </body>
+{% include 'footer.html' %}
 </html>
