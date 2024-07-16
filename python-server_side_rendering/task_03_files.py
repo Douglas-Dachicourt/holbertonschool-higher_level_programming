@@ -51,13 +51,10 @@ def products():
         try:
             products = []
             with open('products.csv', newline="") as file:
-                data = csv.DictReader(file)
-                for row in data:
-                    products.append({
-                        "name": row["Name"],
-                        "category": row["Category"],
-                        "price": row["Price"]
-                    })
+                reader = csv.DictReader(file)
+                for row in reader:
+                    products.append(row)
+                    print(products)
                 if not id:
                     return render_template('product_display.html', products=products)
                 else:
