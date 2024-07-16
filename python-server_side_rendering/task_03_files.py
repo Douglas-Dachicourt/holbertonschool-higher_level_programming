@@ -37,7 +37,7 @@ def products():
         with open('products.json', 'r') as file:
             data = json.load(file)
             if not id:
-                return render_template('product_display.html', data=data)
+                return render_template('product_display.html', products=data)
             else:
                 for item in data:
                     if str(item["id"]) == id:
